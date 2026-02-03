@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Mansi 💕</title>
+
+<style>
+body {
+    background: linear-gradient(#ffe6f0, #fff0f5);
+    font-family: "Comic Sans MS", "Arial", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.mail-box {
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    width: 330px;
+    text-align: center;
+    box-shadow: 0px 15px 30px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+h2 {
+    color: #ff4d88;
+}
+
+.heart {
+    font-size: 26px;
+    animation: float 2s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.buttons {
+    margin-top: 30px;
+    position: relative;
+    height: 150px;
+}
+
+#yesBtn {
+    padding: 18px 50px;
+    font-size: 20px;
+    background-color: #ff4d88;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#yesBtn:hover {
+    transform: scale(1.15);
+}
+
+#noBtn {
+    padding: 12px 30px;
+    font-size: 14px;
+    background-color: #ffd6e6;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    position: absolute;
+    touch-action: manipulation;
+}
+
+#message {
+    display: none;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ff4d88;
+}
+
+#openBtn {
+    padding: 18px 50px;
+    font-size: 20px;
+    background-color: #ff4d88;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="mail-box" id="mailBox">
+    <h2>📩 Ultra Cute Mail for Mansi</h2>
+    <div class="heart">💖</div>
+    <p>A tiny surprise is waiting for you…</p>
+    <button id="openBtn" onclick="openMail()">Open with Love 💌</button>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_1c2d4d6b5c.mp3?filename=romantic-punjabi-style-112191.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function openMail() {
+    document.getElementById("mailBox").innerHTML = `
+        <h2>📩 A Cute Little Mail for Mansi</h2>
+        <div class="heart">💖</div>
+        <p>Hi Mansi 🥺</p>
+        <p>Just a tiny question from someone who smiles every time he thinks of you…</p>
+        <p><b>Will you be my Valentine? 💕</b></p>
+
+        <div class="buttons">
+            <button id="yesBtn" onclick="sayYes()">YES 🐻💘</button>
+            <button id="noBtn"
+                onmouseover="moveNo()"
+                ontouchstart="moveNo()"
+                onclick="moveNo()"
+            >NO 🙈</button>
+        </div>
+
+        <div id="message">
+            YAYYYY!!! 🥰💞  
+            Mansi, you just made my heart do a happy dance 💃🕺  
+            <br><br>
+            — Your Secret Admirer (Akshay) 🐻💕
+        </div>
+    `;
+
+    document.getElementById("bgMusic").play();
+}
+
+function moveNo() {
+    const noBtn = document.getElementById("noBtn");
+    const box = document.getElementById("mailBox");
+
+    const boxRect = box.getBoundingClientRect();
+    const btnRect = noBtn.getBoundingClientRect();
+
+    const maxX = boxRect.width - btnRect.width - 20;
+    const maxY = boxRect.height - btnRect.height - 40;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+function sayYes() {
+    document.getElementById("message").style.display = "block";
+
+    if (navigator.vibrate) {
+        navigator.vibrate([200, 100, 200, 100, 300]);
+    }
+
+    for (let i = 0; i < 25; i++) {
+        const heart = document.createElement("div");
+        heart.innerHTML = "💖";
+        heart.style.position = "fixed";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "100vh";
+        heart.style.fontSize = Math.random() * 20 + 20 + "px";
+        heart.style.animation = "floatUp 2s linear";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 2000);
+    }
+}
+
+const style = document.createElement("style");
+style.innerHTML = `
+@keyframes floatUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-100vh); opacity: 0; }
+}`;
+document.head.appendChild(style);
+</script>
+
+</body>
+</html>
