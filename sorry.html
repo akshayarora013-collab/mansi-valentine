@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pa">
+<head>
+<meta charset="UTF-8">
+<title>Sorry Mansi 💛</title>
+
+<style>
+body {
+    background: #fff5f7;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.box {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    width: 340px;
+    text-align: center;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+}
+
+h2 {
+    color: #ff4d6d;
+}
+
+button {
+    padding: 12px 30px;
+    background: #ff4d6d;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#msg {
+    display: none;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Ik Chhoti Jehi Gal 💛</h2>
+    <p>Mansi… pehla eh open karo 😊</p>
+    <button onclick="showMsg()">Open</button>
+
+    <div id="msg">
+        <p>Oh sab sirf mazaak si.</p>
+        <p>Je tenu thoda vi bura lagga hove, taan genuinely sorry 🙏</p>
+        <p>Intent bas tenu smile karana si, hurt karna nahi.</p>
+        <br>
+        <p>– Akshay</p>
+    </div>
+</div>
+
+<script>
+function showMsg() {
+    document.getElementById("msg").style.display = "block";
+}
+</script>
+
+</body>
+</html>
